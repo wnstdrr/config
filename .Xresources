@@ -1,0 +1,92 @@
+! special
+*.foreground:   #f8f8f2
+*.background:   #272822
+*.cURsorColor:  #f8f8f2
+
+! black
+*.color0:       #272822
+*.color8:       #75715e
+
+! red
+*.color1:       #f92672
+*.color9:       #f92672
+
+! green
+*.color2:       #a6e22e
+*.color10:      #a6e22e
+
+! yellow
+*.color3:       #f4bf75
+*.color11:      #f4bf75
+
+! blue
+*.color4:       #66d9ef
+*.color12:      #66d9ef
+
+! magenta
+*.color5:       #ae81ff
+*.color13:      #ae81ff
+
+! cyan
+*.color6:       #a1efe4
+*.color14:      #a1efe4
+
+! white
+*.color7:       #f8f8f2
+*.color15:      #f9f8f5
+
+! set title of new window
+URxvt*title: thnkpad
+
+! set transparency & background shading
+URxvt*depth: 32
+URxvt*background: rgba:0000/0000/0200/c950
+URxvt*shading: 1 
+
+! remove scrollbar
+URxvt*scrollBar: false
+
+! Allow Mouse Scrolling
+URxvt.perl-ext-common:vtwheel
+
+! change workspace font & size + margin padding
+!URxvt*font: xft:Liberation Mono, Bold Italic:size=14
+URxvt*font: xft:Free Mono, Bold:size=24
+URxvt*internalBorder: 10
+
+! Underline URL & follow URL with firefox if clicked
+URxvt.URlLauncher:firefox
+URxvt.underlineURLs:true
+
+! Key Bindings
+
+! Copy/Paste, same keys as gnome-terminal
+! https://stackoverflow.com/questions/39884093
+! Disable ISO 14755 unicode input so we can use Ctrl-Shift bindings
+URxvt*iso14755:        false
+URxvt*iso14755_52:     false
+
+! Disable Ctrl-Alt-c & Ctrl-Alt-v bindings (optional)
+URxvt.keysym.C-M-c:    builtin-string:
+URxvt.keysym.C-M-v:    builtin-string:
+
+! Bind Ctrl-Shift-c & Ctrl-Shift-v to copy and paste
+! I dont know why, but I needed to use hex keysym values to get it to work
+URxvt.keysym.C-S-0x43: eval:selection_to_clipboard
+URxvt.keysym.C-S-0x56: eval:paste_clipboard
+
+! Set vim binds for hot switching tabs
+URxvt.keysym.S-Page_Up : captURed by terminal for scrolling
+URxvt.keysym.S-Page_Down : captURed by terminal for scrolling
+
+URxvt.keysym.Home: \033[H
+URxvt.keysym.End:  \033[F
+
+! match vte/xterm
+URxvt.keysym.Control-Up:    \034[1;5A
+URxvt.keysym.Control-Down:  \033[1;5B
+URxvt.keysym.Control-Left:  \033[1;5D
+URxvt.keysym.Control-Right: \033[1;5C
+
+! clear the scrollback
+URxvt.keysym.Control-l: command:\033c
