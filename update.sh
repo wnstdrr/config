@@ -21,8 +21,8 @@ if [[ ! -e $PLUGIN_PATH ]]; then
     mkdir $PLUGIN_PATH
 fi
 cp plugins/vtmouse $PLUGIN_PATH
-cp .vimrc $HOME
+cp dot/.vimrc $HOME
 
 # Copy .Xresources to $HOME & update
-cp .Xresources $HOME
+cp dot/.Xresources $HOME
 xrdb $HOME/.Xresources
