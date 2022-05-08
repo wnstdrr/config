@@ -1,8 +1,7 @@
 #! perl
 
 # Source: https://superuser.com/questions/75141/mouse-wheel-scrolling-in-less-and-vim-using-urxvt
-# Implements a scrollwheel just like in good old vt100's mices
-
+# perl plugin for rxvt-unicode for mouse wheel support in editors.
 sub simulate_keypress {
     my ($self, $type) = @_; #type: 0:up, 1:down
 
@@ -28,13 +27,8 @@ sub simulate_keypress {
 
 sub on_button_release {
     my ($self, $event) = @_;
-
-    #my $res_ss = $self->resource("secondaryScroll");
-    #warn("ressource ss is <$res_ss>");
-
     !$self->current_screen and return ();
 
-    #warn("foo, event: <$event->{button}>\n");
     if ($event->{button} eq "4") { # scroll up
         $self->simulate_keypress(0);
         return 1;
