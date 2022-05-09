@@ -22,7 +22,7 @@ fi
 
 cp $PWD/plugins/vtwheel $HOME/.urxvt/ext
 cp $PWD/dotfiles/.vimrc $HOME
-echo -e "[\e[32m✔\e[0m] Copied plugins from \e[1m\e[36m$HOME/config\e[0m"
+echo -e "[\e[32m✔\e[0m] Copied plugins from \e[1m\e[36m$PWD/config/plugins\e[0m"
 
 
 # Copy .Xresources to $HOME & update
