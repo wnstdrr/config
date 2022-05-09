@@ -20,13 +20,13 @@ elif [[ $RXVT_INSTALLED -eq 1 ]]; then
 fi
 
 
-cp $HOME/config/plugins/vtwheel $HOME/.urxvt/ext
-cp $HOME/config/dotfiles/.vimrc $HOME/.urxvt/ext
+cp $PWD/plugins/vtwheel $HOME/.urxvt/ext
+cp $PWD/dotfiles/.vimrc $HOME
 echo -e "[\e[32m✔\e[0m] Copied plugins from \e[1m\e[36m$HOME/config\e[0m"
 
 
 # Copy .Xresources to $HOME & update
-cp dotfiles/.Xresources $HOME
+cp $PWD/dotfiles/.Xresources $HOME
 xrdb $HOME/.Xresources
 echo -e "[\e[32m✔\e[0m] Updated .Xresources"
 
