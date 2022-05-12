@@ -46,6 +46,11 @@ set showmatch
 " Mouse window hopping"
 set mouse=a
 
+" Tab hopping "
+nnoremap <C-Left> :tabprevious<CR>
+nnoremap <C-Right> :tabnext<CR>
+
+
 " Ignore case when searching unless case "
 set ignorecase
 set smartcase
