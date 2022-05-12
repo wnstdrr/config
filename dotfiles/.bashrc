@@ -1,6 +1,6 @@
 #!/bin/bash
 
-function get_branch {
+function git_branch {
     git branch 2> /dev/null | sed -e '/^[^*]d' -e 's/* \(.*\)/ (\1)/'
 }
 
@@ -13,5 +13,3 @@ printf '\033[5 q\r'
 
 # Colourful PS1 for bash
 export PS1="$(tput bold)\]\[$(tput setaf 1)\][\[$(tput setaf 3)\]\u\[$(tput setaf 2)\]@\[$(tput setaf 4)\]\h \[$(tput setaf 5)\]\W\[$(tput setaf 1)\]]\[$(tput setaf 7)\]\[$(tput setaf 5)\]$(tput setaf 1)\$(git_branch)$(tput setaf 5) $ \[$(tput sgr0)\]"
-
-
