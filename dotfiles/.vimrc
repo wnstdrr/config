@@ -43,6 +43,8 @@ set hlsearch
 set incsearch
 set showmatch
 
+" Mouse window hopping"
+set mouse=a
 
 " Ignore case when searching unless case "
 set ignorecase
