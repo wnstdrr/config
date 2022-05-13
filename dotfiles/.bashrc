@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Setup prompt title
+PROMPT_COMMAND='echo -ne "\033]0;$(uname -s -n -r)\007"'
+
 # Autocomplete
 source /etc/profile.d/bash_completion.sh
 if ! shopt -oq posix; then
