@@ -8,6 +8,12 @@ endif
 call plug#begin()
     Plug 'vim-syntastic/syntastic'
     Plug 'morhetz/gruvbox'
+    Plug 'vim-scripts/AutoComplPop'
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    Plug 'scrooloose/nerdtree'
+    Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+    Plug 'Xuyuanp/nerdtree-git-plugin'
+    Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
 " Configure Syntastic "
@@ -20,6 +26,17 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
+" Configure COC "
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
+
+let g:coc_global_extensions = [
+    \ 'coc-snippets',
+    \ 'coc-pairs',
+    \ 'coc-tsserver',
+    \ 'coc-eslint',
+    \ 'coc-json',
+    \ ]
+
 
 " QOL Features "
 " Horizontal and vertical highlighting for row & column "
@@ -27,7 +44,8 @@ hi CursorLine cterm=NONE ctermbg=0
 hi CursorColumn cterm=NONE ctermbg=0
 nnoremap <Leader>c :set cursorline! cursorcolumn<CR>
 
-
+set relativenumber
+set ruler
 " Space and indentation "
 set tabstop=4
 set softtabstop=4
@@ -37,6 +55,10 @@ set autoindent
 set copyindent
 set smartindent
 
+" Menu completion "
+set complete+=kspell
+set completeopt=menuone,longest
+set shortmess+=c
 
 " Highlighting "
 set hlsearch
