@@ -67,6 +67,7 @@ set showmatch
 
 " Mouse window hopping"
 set mouse=a
+set ttymouse=sgr
 
 " Tab hopping "
 nnoremap <C-Left> :tabprevious<CR>
