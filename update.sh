@@ -48,6 +48,9 @@ cp $PWD/dotfiles/.neoascii $HOME/
 
 mkdir -p $HOME/.urxvt/ext
 
+cp $PWD/fonts/* $HOME/.local/share/fonts/
+fc-cache -f
+
 # Copy .Xresources to $HOME & update
 cp $PWD/dotfiles/.Xresources $HOME
 xrdb $HOME/.Xresources
@@ -66,7 +69,10 @@ echo -e "   [\e[32m✔\e[0m] Copied plugins from \e[1m\e[36m$PWD/config/plugins\
 echo -e "   [\e[32m✔\e[0m] Copied .vimrc from \e[1m\e[36m$PWD/config/dotfiles\e[0m"
 echo -e "   [\e[32m✔\e[0m] Copied .bashrc from \e[1m\e[36m$PWD/config/dotfiles\e[0m"
 echo -e "   [\e[32m✔\e[0m] Copied .neoascii from \e[1m\e[36m$PWD/config/dotfiles\e[0m"
+echo -e "   [\e[32m✔\e[0m] Copied fonts from \e[1m\e[36m$PWD/config/fonts\e[0m"
+
 echo -e "   [\e[32m✔\e[0m] Created plugin directory at \e[1m\e[36m$HOME/.urxv/ext\e[0m"
+echo -e "   [\e[32m✔\e[0m] Updated font cache"
 echo -e "   [\e[32m✔\e[0m] Updated .Xresources"
 
 echo -e "\n[\e[32m✔\e[0m] Install Completed at \n    $(date)"
