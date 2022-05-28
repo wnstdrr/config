@@ -41,6 +41,11 @@ sudo apt install install gcc g++ make -y > /dev/null 2>&1
 cp $PWD/plugins/vtwheel $HOME/.urxvt/ext
 cp $PWD/dotfiles/.vimrc $HOME
 
+cat $PWD/dotfiles/.bashrc > $HOME/.bashrc
+source $HOME/.bashrc
+
+cp $PWD/dotfiles/.neoascii $HOME/ 
+
 mkdir -p $HOME/.urxvt/ext
 
 # Copy .Xresources to $HOME & update
@@ -59,6 +64,8 @@ echo -e "[\e[32m✔\e[0m] gcc, g++, make installed at \e[1m\e[36m$(which gcc)\e[
 echo -e "[\e[5m\e[32m+\e[0m] Configuring dotfiles..."
 echo -e "   [\e[32m✔\e[0m] Copied plugins from \e[1m\e[36m$PWD/config/plugins\e[0m"
 echo -e "   [\e[32m✔\e[0m] Copied .vimrc from \e[1m\e[36m$PWD/config/dotfiles\e[0m"
+echo -e "   [\e[32m✔\e[0m] Copied .bashrc from \e[1m\e[36m$PWD/config/dotfiles\e[0m"
+echo -e "   [\e[32m✔\e[0m] Copied .neoascii from \e[1m\e[36m$PWD/config/dotfiles\e[0m"
 echo -e "   [\e[32m✔\e[0m] Created plugin directory at \e[1m\e[36m$HOME/.urxv/ext\e[0m"
 echo -e "   [\e[32m✔\e[0m] Updated .Xresources"
 
