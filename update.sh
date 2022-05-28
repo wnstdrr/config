@@ -4,6 +4,8 @@ clear
 
 RXVT_INSTALLED=0
 VIM_INSTALLED=0
+GCC_GPLUS_MAKE_INSTALLED=0
+FIX_INSTALL_GCC_GPLUS_MAKE=0
 
 # Check if rxvt-unicode is installed if not install it
 if [[ $(which rxvt-unicode) == "/usr/bin/rxvt-unicode" ]]; then
@@ -13,6 +15,10 @@ fi
 # Check if vim is installed if not install it
 if [[ $(which vim) == "/usr/bin/vim" ]]; then
     VIM_INSTALLED=1
+fi
+
+if [[ $(which gcc) == "/usr/bin/gcc" && $(which g++) == "/usr/bin/g++" && $(which make) == "/usr/bin/make" ]]; then
+    GCC_GPLUS_MAKE_INSTALLED=1
 fi
 
 if [[ $RXVT_INSTALLED -eq 0 ]]; then
@@ -35,8 +41,14 @@ curl -sL "https://deb.nodesource.com/setup_12.x" | sudo -E bash > /dev/null 2>&1
 echo -e "   - [\e[5m\e[32m+\e[0m] Installing package nodejs..."
 sudo apt -y install nodejs > /dev/null 2>&1
 
-echo -e "   - [\e[5m\e[32m+\e[0m] Installing package gcc, g++, make...\n"
-sudo apt install install gcc g++ make -y > /dev/null 2>&1
+if [[ GCC_GPLUS_MAKE_INSTALLED -eq 1 ]]; then
+    echo -e "   - [\e[32m✔\e[0m] gcc, g++, make already installed at \e[1m\e[36m$(which gcc)\e[0m, \e[1m\e[36m$(which g++)\e[0m, \e[1m\e[36m$(which make)\e[0m skipping...\n" 
+    FIX_INSTALL_GCC_GPLUS_MAKE=1
+else
+    echo -e "   - [\e[5m\e[32m+\e[0m] Installing package gcc, g++, make...\n"
+    sudo apt install install gcc g++ make -y > /dev/null 2>&1
+    FIX_INSTALL_GCC_GPLUS_MAKE=1
+fi
 
 cp $PWD/plugins/vtwheel $HOME/.urxvt/ext
 cp $PWD/dotfiles/.vimrc $HOME
@@ -62,7 +74,10 @@ else
 fi
 
 echo -e "[\e[32m✔\e[0m] nodejs installed at \e[1m\e[36m$(which node)\e[0m"
-echo -e "[\e[32m✔\e[0m] gcc, g++, make installed at \e[1m\e[36m$(which gcc)\e[0m, \e[1m\e[36m$(which g++)\e[0m, \e[1m\e[36m$(which make)\e[0m\n"
+
+if [[ FIX_INSTALL_GCC_GPLUS_MAKE -eq 1 ]]; then
+    echo -e "[\e[32m✔\e[0m] gcc, g++, make installed at \e[1m\e[36m$(which gcc)\e[0m, \e[1m\e[36m$(which g++)\e[0m, \e[1m\e[36m$(which make)\e[0m\n"
+fi
 
 echo -e "[\e[5m\e[32m+\e[0m] Configuring dotfiles..."
 echo -e "   [\e[32m✔\e[0m] Copied plugins from \e[1m\e[36m$PWD/config/plugins\e[0m"
@@ -72,7 +87,7 @@ echo -e "   [\e[32m✔\e[0m] Copied .neoascii from \e[1m\e[36m$PWD/config/dotfil
 echo -e "   [\e[32m✔\e[0m] Copied fonts from \e[1m\e[36m$PWD/config/fonts\e[0m"
 
 echo -e "   [\e[32m✔\e[0m] Created plugin directory at \e[1m\e[36m$HOME/.urxv/ext\e[0m"
-echo -e "   [\e[32m✔\e[0m] Updated font cache"
+echo -e "   [\e[32m✔\e[0m] Updated fc-cache"
 echo -e "   [\e[32m✔\e[0m] Updated .Xresources"
 
 echo -e "\n[\e[32m✔\e[0m] Install Completed at \n    $(date)"
