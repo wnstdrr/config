@@ -1,7 +1,10 @@
 #!/bin/bash
 
 # Setup prompt title
-PROMPT_COMMAND='echo -ne "\033]0;$(uname -s -n -r)\007"'
+EXEC_COMMAND=''
+#while true; do EXEC_COMMAND=$(echo $$); done
+
+PROMPT_COMMAND='echo -ne "\033]0;$(uname -s -n -r) | $(echo $$)\007"'
 
 # Autocomplete
 source /etc/profile.d/bash_completion.sh
@@ -22,8 +25,8 @@ function git_branch {
 printf '\033[5 q\r'
 
 # auto completion settings
-bind 'set show-all-if-ambiguous on'
-bind 'TAB:menu-complete'
+#bind 'set show-all-if-ambiguous on'
+#bind 'TAB:menu-complete'
 
 # Default stuff from other distro's
 HISTCONTROL=ignoreboth
@@ -48,7 +51,7 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
-alias neofetch="/usr/bin/neofetch --gpu_type dedicated --battery_display bar --disable cpu icons resolution packages shell theme term uptime --ascii ~/.neoascii --colors 1 6 14 1 14 7 | lolcat -S 8000000"
+alias neofetch="clear && /usr/bin/neofetch --gpu_type dedicated --battery_display bar --disable cpu icons resolution packages shell theme term uptime --ascii ~/.neoascii --colors 1 6 14 1 14 7 | lolcat -S 8000000"
 
 alias ll='ls -alF'
 alias la='ls -A'
