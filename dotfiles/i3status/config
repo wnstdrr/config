@@ -1,0 +1,19 @@
+general {
+    colors = true
+    color_good = "#BBBBBB"
+    color_bad = "#CC1616"
+    color_degraded = "#55858E"
+    interval = 1
+}
+
+order += "ethernet enp0s3"
+order += "load"
+
+load {
+    format = " load avg %1min "
+}
+
+ethernet enp0s3 {
+    format_up = "inet %ip"
+    format_down = "inet inactive"
+}

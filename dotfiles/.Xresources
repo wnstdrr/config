@@ -39,7 +39,7 @@ URxvt*title: thnkpad
 
 ! Set transparency & background shading
 URxvt*depth: 32
-URxvt*background: rgba:0000/0000/0200/c950
+URxvt*background: rgba:0000/0000/0000/cccc
 URxvt*shading: 1 
 
 ! Remove scrollbar
@@ -50,7 +50,7 @@ URxvt*scrollBar: false
 ! URxvt.perl-ext-common:vtwheel
 
 ! Change workspace font & size + margin padding
-URxvt*font: xft:Free Mono, Bold:size=24
+URxvt*font: xft:Hasklug Nerd Font Mono:style=Italic:size=10
 URxvt*internalBorder: 10
 
 ! Underline URL & follow
