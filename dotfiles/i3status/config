@@ -27,5 +27,5 @@ ethernet enp0s3 {
 }
 
 tztime local {
-    format = "%a %h %d %H:%M:%S %Y"
+    format = "%a %h %d %I:%M:%S %Y"
 }
