@@ -28,7 +28,6 @@ let g:syntastic_check_on_wq = 0
 
 " Configure COC "
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
-
 let g:coc_global_extensions = [
     \ 'coc-snippets',
     \ 'coc-pairs',
@@ -37,7 +36,6 @@ let g:coc_global_extensions = [
     \ 'coc-json',
     \ ]
 
-
 " QOL Features "
 " Horizontal and vertical highlighting for row & column "
 hi CursorLine cterm=NONE ctermbg=0
@@ -45,6 +43,7 @@ hi CursorColumn cterm=NONE ctermbg=0
 nnoremap <Leader>c :set cursorline! cursorcolumn<CR>
 
 set relativenumber
+set number
 set ruler
 " Space and indentation "
 set tabstop=4
@@ -73,11 +72,9 @@ set ttymouse=sgr
 nnoremap <C-Left> :tabprevious<CR>
 nnoremap <C-Right> :tabnext<CR>
 
-
 " Ignore case when searching unless case "
 set ignorecase
 set smartcase
-
 
 " Configure gruvbox theme"
 let g:gruvbox_transparent_bg='1'
