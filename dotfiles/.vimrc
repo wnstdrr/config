@@ -29,7 +29,6 @@ let g:syntastic_check_on_wq = 0
 " Configure COC "
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 let g:coc_global_extensions = [
-    \ 'coc-snippets',
     \ 'coc-pairs',
     \ 'coc-tsserver',
     \ 'coc-eslint',
