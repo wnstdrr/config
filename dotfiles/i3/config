@@ -10,6 +10,8 @@
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
 exec --no-startup-id compton
+exec --no-startup-id xrdb ~/.Xresources
+exec --no-startup-id feh --no-fehbg --bg-scale ~/Pictures/system_background.png 
 
 set $mod Mod4
 
@@ -18,13 +20,14 @@ smart_borders on
 
 set $inner_gaps 15
 set $outer_gaps 0
+set $radius 6
 
 for_window [class=".*"] border pixel 2
 gaps inner $inner_gaps
 gaps outer $outer_gaps
 
-# Window focused color
 client.focused #4c7899 #b8bb26 #ffffff #2e9ef4 #b8bb26
+client.background #7c7f64
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
