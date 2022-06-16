@@ -4,16 +4,6 @@ PROMPT_COMMAND='echo -ne "\033]0;$(uname -s -n -r) | $(echo $$)\007"'
 # bash endline
 printf '\033[5 q\r'
 
-# Autocompletion
-source /etc/profile.d/bash_completion.sh
-if ! shopt -oq posix; then
-  if [ -f /usr/share/bash-completion/bash_completion ]; then
-    . /usr/share/bash-completion/bash_completion
-  elif [ -f /etc/bash_completion ]; then
-    . /etc/bash_completion
-  fi
-fi
-
 function git_branch {
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
