@@ -1,0 +1,14 @@
+#!/bin/tcsh 
+source "/home/$USER/.config/tcsh-source/colours.tcsh"
+source "/home/$USER/.config/tcsh-source/aliases.tcsh"
+source "/home/$USER/.config/tcsh-source/setenv.tcsh"
+
+wmctrl -r :ACTIVE: -T "`uname -s -n -r` | `echo ${termid}`"
+printf '\033[5 q\r'
+
+set d = '$'
+if ($?prompt) then
+    set prompt = "${BOLD}${RED}[${YELLOW}%n${GREEN}@${BLUE}%m ${MAGENTA}%c${RED}]${MAGENTA} `echo $d`${RESET} "
+    set prompt2 = "${BOLD}${MAGENTA}`echo $d`${RESET} "
+    set prompt3 = "${BOLD}${MAGENTA}`echo $d`${RESET} "
+endif
