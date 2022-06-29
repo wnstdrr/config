@@ -8,7 +8,7 @@ printf '\033[5 q\r'
 
 set d = '$'
 if ($?prompt) then
-    set prompt = "${BOLD}${RED}[${YELLOW}%n${GREEN}@${BLUE}%m ${MAGENTA}%c${RED}]${MAGENTA} `echo $d`${RESET} "
+    set prompt = "`$colour %bold %red [ %yellow %n %green @ %blue %m ' ' %magenta %c %red ] %magenta ' ' '$d' %reset ' '`"
     set prompt2 = "${BOLD}${MAGENTA}`echo $d`${RESET} "
     set prompt3 = "${BOLD}${MAGENTA}`echo $d`${RESET} "
 endif
