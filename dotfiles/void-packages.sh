@@ -4,6 +4,7 @@
 # to start i3-gaps, feh, compton/picom, etc.
 
 sudo xbps-install -Syu
+sudo xbps-install -Sy xbps
 sudo xbps-install -Sy \
     i3-gaps \
     xorg \
