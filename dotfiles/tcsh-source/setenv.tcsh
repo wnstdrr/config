@@ -4,6 +4,10 @@ setenv gitbranch "sh -c 'git branch --no-color 2> /dev/null' | sed -e '/^[^*]/d'
 setenv colour "$cwd/.config/tcsh-source/source/exec/colours"
 setenv state "$cwd/.config/tcsh-source/source/exec/tcsh-state"
 
+# Keybinds for urxvt
+bindkey '^[[1;5D' backward-word
+bindkey '^[[1;5C' forward-word
+
 @ false = ( 0 != 0 ) ;
 @ true = ( $false != 1 ) ;
 
