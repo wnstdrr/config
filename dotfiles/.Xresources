@@ -45,10 +45,6 @@ URxvt*shading: 1
 ! Remove scrollbar
 URxvt*scrollBar: false
 
-! Enable mouse scrolling plugin
-! Disabled due to breaking Ctrl-c, Ctrl-v keybinds
-! URxvt.perl-ext-common:vtwheel
-
 ! Change workspace font & size + margin padding
 URxvt*font: xft:Hasklug Nerd Font Mono:style=Italic:size=10
 URxvt*internalBorder: 10
@@ -56,8 +52,6 @@ URxvt*internalBorder: 10
 ! Underline URL & follow
 URxvt.URlLauncher:/usr/bin/firefox
 URxvt.underlineURLs:true
-
-! Key Bindings
 
 ! Copy/Paste, same keys as gnome-terminal
 ! Disable ISO 14755 unicode input so we can use Ctrl-Shift bindings
@@ -69,7 +63,6 @@ URxvt.keysym.C-M-c:    builtin-string:
 URxvt.keysym.C-M-v:    builtin-string:
 
 ! Bind Ctrl-Shift-c & Ctrl-Shift-v to copy and paste
-! I dont know why, but I needed to use hex keysym values to get it to work
 URxvt.keysym.C-S-0x43: eval:selection_to_clipboard
 URxvt.keysym.C-S-0x56: eval:paste_clipboard
 
@@ -80,9 +73,7 @@ URxvt.keysym.S-Page_Down : captURed by terminal for scrolling
 URxvt.keysym.Home: \033[H
 URxvt.keysym.End:  \033[F
 
-! match vte/xterm
-URxvt.keysym.Control-Up:    \034[1;5A
-URxvt.keysym.Control-Down:  \033[1;5B
+! scrubbing text keysyms
 URxvt.keysym.Control-Left:  \033[1;5D
 URxvt.keysym.Control-Right: \033[1;5C
 
