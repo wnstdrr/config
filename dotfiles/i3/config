@@ -12,6 +12,7 @@
 exec --no-startup-id compton
 exec --no-startup-id xrdb ~/.Xresources
 exec --no-startup-id feh --no-fehbg --bg-scale ~/Pictures/system_background.jpg 
+exec --no-startup-id glava --desktop
 
 set $mod Mod1
 
