@@ -72,6 +72,7 @@ se tabstop=4 softtabstop=4 shiftwidth=4
 se autoindent smartindent copyindent expandtab
 
 " Highlighting
+autocmd CursorHold * silent call CocActionAsync('highlight')
 se hlsearch incsearch showmatch 
 
 " Mouse control
