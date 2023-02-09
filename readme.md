@@ -1,23 +1,37 @@
-# Configs
+# Configuration
 
-My personal configs for: 
+Window Manager configuration
 
-    * terminal 
-    * editor 
-    * xorg/x11
-    * other dot files
+   * i3wm
+   * Xorg / X11
 
-# Debian Only
+Window Composition
 
-auto config installer run
-```bash
+   * compton
+
+Terminal Emulator configuration
+
+   * urxvt-unicode
+   
+Text Editor configuration
+
+   * vim
+   
+# Installers
+
+Installer scripts to automate installing packages and configs 
+
+## Debian Installer
+
+```shell
 chmod +x update.sh && ./update.sh
 ```
-> Note: Installer only works on Debian
 
-# Void Linux
+## Void Linux
 
 Most of the packages in this repo are geared towards the minimal installation of Void Linux.
 Will be working on a better void-installer package to make this process super fast and easy.
 
-> Note: Installer will only work on Void Linux
+```shell
+chmod +x dotfiles/void-packages.sh && ./dotfiles/void-packages.sh
+```
