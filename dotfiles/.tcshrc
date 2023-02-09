@@ -1,14 +1,61 @@
-#!/bin/tcsh 
-source "/home/$USER/.config/tcsh-source/colours.tcsh"
-source "/home/$USER/.config/tcsh-source/aliases.tcsh"
-source "/home/$USER/.config/tcsh-source/setenv.tcsh"
+#!/bin/tcsh
+setenv gitbranch "sh -c 'git branch --no-color 2> /dev/null' | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1) /'"
 
-wmctrl -r :ACTIVE: -T "`uname -s -n -r` | `echo ${termid}`"
+# very basic and crude implementation of plugins for tcsh with actual C programs
+setenv colour "/home/cc/.config/tcsh-source/source/exec/colours"
+setenv state "/home/cc/.config/tcsh-source/source/exec/tcsh-state"
+
+@ false = ( 0 != 0 ) ;
+@ true = ( $false != 1 ) ;
+
+setenv LC_ALL en_US.UTF-8
+setenv XDG_CURRENT_DESKTOP "i3wm"
+setenv termid "`ps -p $$ -o ppid=`"
+setenv egroups "`groups | sed -r 's/[ ]+/:/g'`"
+setenv ignoreeof 3
+setenv rmstar
+setenv history 64
+
+set cdpath = (~)
+
+# Word completion
+setenv autolist
+setenv filec
+setenv autoexpand
+setenv correct cmd
+setenv listjobs long
+
+# Keybinds for urxvt
+bindkey '^[[1;5D' backward-word
+bindkey '^[[1;5C' forward-word
+
+# Aliases
+alias ls ls --color=always
+alias ll ls -alF
+alias l ls -CF
+
+alias reboot sudo reboot
+alias shutdown sudo shutdown
+
+alias grep grep --color=auto
+alias egrep grep
+
+alias spotify "flatpak run com.spotify.Client"
+alias alsamixer "wmctrl -r :ACTIVE: -T 'AlsaMixer'; /bin/alsamixer"
+alias gotop "wmctrl -r :ACTIVE: -T 'GoTop'; /bin/gotop"
+
+alias cd 'chdir \!*;set prompt="`$colour %bold %red [ %yellow`%n`$colour %yellow %green @ %blue ' ' `%m` $colour ' ' %magenta` %c`$colour %red ]` `$gitbranch``$colour %magenta``echo $d``$colour %reset` "'
+alias co 'eval "git checkout \!*;cd .;"'
+
+alias precmd 'set rprompt="`$colour %bold %red [ %blue``date '+%r'``$colour %red ]` `$colour [ %yellow``$state $?` `$colour %green @ %magenta` `$colour ' ' %c ' ' %red ] %reset` "'
+
+wmctrl -r :ACTIVE: -T "`uname -s -n -r -m` -> $$" > /dev/null
+clear
 printf '\033[5 q\r'
 
 set d = '$'
 if ($?prompt) then
-    set prompt = "`$colour %bold %red [ %yellow %n %green @ %blue %m ' ' %magenta %c %red ] %magenta ' ' '$d' %reset ' '`"
-    set prompt2 = "${BOLD}${MAGENTA}`echo $d`${RESET} "
-    set prompt3 = "${BOLD}${MAGENTA}`echo $d`${RESET} "
+    set prompt = "`$colour %bold %red [ %yellow %n %green @ %blue %m %magenta ' ' %c %red ] %magenta ' ' '$d' %reset ' '`"
+    set prompt2 = "`$colour %bold %magenta``echo '$d'``$colour %reset` "
+    set prompt3 = "`$colour %bold %magenta``echo '$d'``$colour %reset` "
 endif
